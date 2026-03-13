@@ -50,13 +50,16 @@ async function renderMovieDetailsPage() {
         // Generate dummy dates
         const datesHMTL = generateDatesHTML();
         
+        const bannerImg = movie.banner || movie.banner_url || movie.poster || movie.poster_url;
+        const posterImg = movie.poster || movie.poster_url;
+
         movieContent.innerHTML = `
             <header class="movie-banner reveal">
-                <img src="${movie.banner_url || movie.poster_url}" alt="Banner" class="banner-img">
+                <img src="${bannerImg}" alt="Banner" class="banner-img" onerror="this.src='https://images.unsplash.com/photo-1543722530-d2c3201371e7?q=80&w=2074&auto=format&fit=crop'">
                 <div class="banner-gradient"></div>
                 <div class="container details-grid">
                     <div class="poster-card reveal stagger-1">
-                        <img src="${movie.poster_url}" alt="${movie.title}" style="width: 100%; display: block;">
+                        <img src="${posterImg}" alt="${movie.title}" style="width: 100%; display: block;" onerror="this.src='https://images.unsplash.com/photo-1543722530-d2c3201371e7?q=80&w=600&auto=format&fit=crop'">
                     </div>
                     <div class="banner-info reveal stagger-2">
                         <div class="genre-tags">
@@ -116,6 +119,11 @@ async function renderMovieDetailsPage() {
         
         // Select first date by default
         if(dateCards.length > 0) dateCards[0].click();
+
+        // Trigger reveal animations for newly injected DOM elements
+        setTimeout(() => {
+            if (window.triggerReveal) window.triggerReveal();
+        }, 100);
 
     } catch (error) {
         movieContent.innerHTML = `<div class="container" style="padding: 10rem 0; text-align: center;"><h2>Error loading movie.</h2><a href="movies.html" class="btn btn-outline mt-4">Go Back</a></div>`;

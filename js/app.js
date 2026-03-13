@@ -41,9 +41,8 @@ function initNavbar() {
 
 /* Scroll Reveal Animations */
 function initRevealOnScroll() {
-  const reveals = document.querySelectorAll('.reveal');
-  
   const revealOnScroll = () => {
+    const reveals = document.querySelectorAll('.reveal');
     const windowHeight = window.innerHeight;
     const elementVisible = 100;
 
@@ -56,6 +55,7 @@ function initRevealOnScroll() {
   };
 
   window.addEventListener('scroll', revealOnScroll);
+  window.triggerReveal = revealOnScroll; // Expose globally for dynamic content
   revealOnScroll(); // Trigger on load
 }
 

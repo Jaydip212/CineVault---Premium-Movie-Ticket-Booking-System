@@ -373,17 +373,18 @@ img {
 
 .movie-card {
   position: relative;
-  border-radius: 12px;
-  overflow: hidden;
   cursor: pointer;
   transition: all var(--transition-normal);
-  background: var(--bg-secondary);
+  background: transparent;
 }
 
 .movie-card-img-wrap {
   position: relative;
   aspect-ratio: 2/3;
   overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  margin-bottom: 1rem;
 }
 
 .movie-card-img-wrap img {
@@ -394,55 +395,46 @@ img {
 }
 
 .movie-card:hover .movie-card-img-wrap img {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 .movie-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0) 100%);
-  opacity: 0;
-  transition: opacity var(--transition-normal);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 1.5rem;
-}
-
-.movie-card:hover .movie-overlay {
-  opacity: 1;
+  display: none;
 }
 
 .movie-info {
-  padding: 1rem;
+  padding: 0 0.5rem;
 }
 
 .movie-title {
   font-size: 1.1rem;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 500;
 }
 
 .movie-meta {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1rem;
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: 0.9rem;
 }
 
 .rating {
-  color: var(--accent-gold);
+  color: var(--text-secondary);
   display: flex;
   align-items: center;
   gap: 4px;
 }
+.rating i {
+  color: var(--accent-red);
+}
 
 .movie-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(229, 9, 20, 0.2);
-  border-color: rgba(229, 9, 20, 0.3);
+  transform: translateY(-5px);
 }
 
 /*=============================================
