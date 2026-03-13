@@ -12,8 +12,8 @@ export const DUMMY_MOVIES = [
         duration: "2h 30m",
         rating: 4.8,
         release_date: "2026-04-15",
-        poster_url: "https://images.unsplash.com/photo-1626814026160-2237a95fc5a0?q=80&w=2070&auto=format&fit=crop",
-        banner_url: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop",
+        poster_url: "https://images.unsplash.com/photo-1543722530-d2c3201371e7?q=80&w=600&auto=format&fit=crop",
+        banner_url: "https://images.unsplash.com/photo-1543722530-d2c3201371e7?q=80&w=2074&auto=format&fit=crop",
         description: "A team of astronauts discover an anomaly at the edge of the solar system, plunging them into a mind-bending journey across dimensions.",
         trailer: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     },
@@ -25,7 +25,7 @@ export const DUMMY_MOVIES = [
         duration: "2h 15m",
         rating: 4.5,
         release_date: "2026-02-10",
-        poster_url: "https://images.unsplash.com/photo-1534447677768-be436bb09401?q=80&w=1994&auto=format&fit=crop",
+        poster_url: "https://images.unsplash.com/photo-1605806616949-1e87b487cb2a?q=80&w=600&auto=format&fit=crop",
         banner_url: "https://images.unsplash.com/photo-1555680202-c86f0e12f086?q=80&w=2070&auto=format&fit=crop",
         description: "In a cyberpunk metropolis, a rogue hacker must outrun a corporate syndicate to protect a powerful AI core.",
         trailer: "#"
@@ -38,7 +38,7 @@ export const DUMMY_MOVIES = [
         duration: "1h 50m",
         rating: 4.2,
         release_date: "2026-03-05",
-        poster_url: "https://images.unsplash.com/photo-1627993077674-329ab7ad2719?q=80&w=1968&auto=format&fit=crop",
+        poster_url: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=600&auto=format&fit=crop",
         banner_url: "https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=2076&auto=format&fit=crop",
         description: "A tense survival thriller set in the arid wastelands where trust is the most expensive commodity.",
         trailer: "#"
@@ -51,7 +51,7 @@ export const DUMMY_MOVIES = [
         duration: "2h 05m",
         rating: 4.6,
         release_date: "2025-11-20",
-        poster_url: "https://images.unsplash.com/photo-1574267432553-4b462808152a?q=80&w=2070&auto=format&fit=crop",
+        poster_url: "https://images.unsplash.com/photo-1440407876336-62333a6f010f?q=80&w=600&auto=format&fit=crop",
         banner_url: "https://images.unsplash.com/photo-1440407876336-62333a6f010f?q=80&w=2074&auto=format&fit=crop",
         description: "A heartfelt family drama intertwined with the mysterious mechanics of a grandfather clock that bends time.",
         trailer: "#"
@@ -64,7 +64,7 @@ export const DUMMY_MOVIES = [
         duration: "2h 10m",
         rating: 4.3,
         release_date: "2026-01-15",
-        poster_url: "https://images.unsplash.com/photo-1485622204646-11f8e65870fc?q=80&w=2070&auto=format&fit=crop",
+        poster_url: "https://images.unsplash.com/photo-1514301046162-8e8e7529ea4c?q=80&w=600&auto=format&fit=crop",
         banner_url: "https://images.unsplash.com/photo-1514301046162-8e8e7529ea4c?q=80&w=2070&auto=format&fit=crop",
         description: "Three misfits try to rob a high-end luxury Casino and everything that can go wrong, goes hilariously wrong.",
         trailer: "#"
@@ -77,7 +77,7 @@ export const DUMMY_MOVIES = [
         duration: "2h 45m",
         rating: 4.9,
         release_date: "2026-05-01",
-        poster_url: "https://images.unsplash.com/photo-1582967634458-75e6082ecfe9?q=80&w=2070&auto=format&fit=crop",
+        poster_url: "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?q=80&w=600&auto=format&fit=crop",
         banner_url: "https://images.unsplash.com/photo-1682687220063-4742bd7fd538?q=80&w=2070&auto=format&fit=crop",
         description: "A marine biologist discovers an underwater civilization that threatens the surface world's existence.",
         trailer: "#"
