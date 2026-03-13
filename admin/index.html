@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | CineVault</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/animations.css">
+
+    <style>
+        .admin-layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 260px;
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-light);
+            padding: 2rem 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-link {
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+            transition: all var(--transition-fast);
+        }
+
+        .side-link:hover, .side-link.active {
+            background: rgba(229, 9, 20, 0.1);
+            color: white;
+            border-right: 3px solid var(--accent-red);
+        }
+
+        .main-content {
+            flex: 1;
+            padding: 2rem 3rem;
+            background: var(--bg-primary);
+            overflow-y: auto;
+        }
+
+        .dash-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .d-card {
+            background: var(--bg-glass);
+            border: 1px solid var(--border-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .d-icon {
+            width: 50px; height: 50px;
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .d-card h4 { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 0.5rem; }
+        .d-card .num { font-size: 1.8rem; font-weight: 700; font-family: var(--font-heading); }
+
+        .table-wrap {
+            background: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+            overflow: hidden;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        th { background: rgba(0,0,0,0.2); color: var(--text-secondary); font-weight: 500; font-size: 0.9rem; text-transform: uppercase; }
+        
+        tr:hover { background: rgba(255,255,255,0.02); }
+
+        .action-btn { display: inline-block; padding: 0.3rem 0.6rem; border-radius: 4px; font-size: 0.8rem; cursor: pointer; }
+        .btn-edit { background: rgba(59, 130, 246, 0.2); color: #3b82f6; }
+        .btn-del { background: rgba(229, 9, 20, 0.2); color: var(--accent-red); }
+    </style>
+</head>
+<body>
+
+    <div class="admin-layout page-enter">
+        <aside class="sidebar">
+            <div class="nav-logo" style="padding: 0 2rem; margin-bottom: 3rem; font-size: 1.5rem;">CINE<span>ADMIN</span></div>
+            
+            <a href="#" class="side-link active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+            <a href="#" class="side-link"><i class="fa-solid fa-film"></i> Movies</a>
+            <a href="#" class="side-link"><i class="fa-solid fa-building"></i> Theatres</a>
+            <a href="#" class="side-link"><i class="fa-solid fa-ticket"></i> Bookings</a>
+            <a href="#" class="side-link"><i class="fa-solid fa-users"></i> Users</a>
+            
+            <div style="margin-top: auto;">
+                <a href="../index.html" class="side-link"><i class="fa-solid fa-arrow-right-from-bracket"></i> Exit to Site</a>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 2rem;">Overview</h2>
+                <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add Movie</button>
+            </div>
+
+            <div class="dash-cards">
+                <div class="d-card reveal stagger-1">
+                    <div>
+                        <h4>Total Revenue</h4>
+                        <div class="num text-gold" id="statRevenue">$0</div>
+                    </div>
+                    <div class="d-icon" style="background: rgba(212, 175, 55, 0.1); color: var(--accent-gold);"><i class="fa-solid fa-dollar-sign"></i></div>
+                </div>
+                <div class="d-card reveal stagger-2">
+                    <div>
+                        <h4>Total Bookings</h4>
+                        <div class="num text-blue" id="statBookings">0</div>
+                    </div>
+                    <div class="d-icon" style="background: rgba(59, 130, 246, 0.1); color: var(--accent-blue);"><i class="fa-solid fa-ticket"></i></div>
+                </div>
+                <div class="d-card reveal stagger-3">
+                    <div>
+                        <h4>Active Movies</h4>
+                        <div class="num text-red" id="statMovies">0</div>
+                    </div>
+                    <div class="d-icon" style="background: rgba(229, 9, 20, 0.1); color: var(--accent-red);"><i class="fa-solid fa-film"></i></div>
+                </div>
+                <div class="d-card reveal stagger-4">
+                    <div>
+                        <h4>Theatres</h4>
+                        <div class="num" id="statTheatres">0</div>
+                    </div>
+                    <div class="d-icon" style="background: rgba(255, 255, 255, 0.1); color: white;"><i class="fa-solid fa-building"></i></div>
+                </div>
+            </div>
+
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.2rem;">Recent Bookings</h3>
+            <div class="table-wrap reveal stagger-5">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ref ID</th>
+                            <th>Movie</th>
+                            <th>Date</th>
+                            <th>Seats</th>
+                            <th>Amount</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminBookingsTable">
+                        <tr><td colspan="7" style="text-align: center;">Loading data...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/supabase.js"></script>
+    <script type="module" src="../js/app.js"></script>
+    <script type="module">
+        import { supabase, USE_MOCK_DATA } from '../js/supabase.js';
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check if logged in as admin via localStorage
+            const sessionData = localStorage.getItem('adminSession');
+            if(!sessionData) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            if(USE_MOCK_DATA) {
+                // Fallback dummy data if keys aren't set
+                document.getElementById('statRevenue').innerText = '$12,450';
+                document.getElementById('statBookings').innerText = '842';
+                document.getElementById('statMovies').innerText = '14';
+                document.getElementById('statTheatres').innerText = '5';
+                document.getElementById('adminBookingsTable').innerHTML = `
+                    <tr>
+                        <td>#CV1049</td><td>The Cosmic Void</td><td>Jan 01, 2026</td><td>A1, A2</td><td>$50.00</td>
+                        <td><span style="color: #22c55e;">Confirmed</span></td>
+                        <td><span class="action-btn btn-del"><i class="fa-solid fa-trash"></i></span></td>
+                    </tr>
+                `;
+                return;
+            }
+
+            try {
+                // 1. Fetch total revenue and bookings count
+                const { data: bookings, error: bErr } = await supabase.from('bookings').select('total_amount, booking_reference, movie_title, show_date, seats, created_at').order('created_at', { ascending: false });
+                if(bErr) throw bErr;
+
+                let revenue = 0;
+                bookings.forEach(b => revenue += Number(b.total_amount || 0));
+                
+                document.getElementById('statRevenue').innerText = '$' + revenue.toFixed(2);
+                document.getElementById('statBookings').innerText = bookings.length;
+
+                // 2. Fetch movies count
+                const { count: moviesCount, error: mErr } = await supabase.from('movies').select('*', { count: 'exact', head: true });
+                if(!mErr) document.getElementById('statMovies').innerText = moviesCount;
+
+                // 3. Fetch theatres count
+                const { count: tCount, error: tErr } = await supabase.from('theatres').select('*', { count: 'exact', head: true });
+                if(!tErr) document.getElementById('statTheatres').innerText = tCount;
+
+                // 4. Populate recent bookings table (limit to 10 for dashboard)
+                const recentBookings = bookings.slice(0, 10);
+                const tbody = document.getElementById('adminBookingsTable');
+                
+                if(recentBookings.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="7" style="text-align: center;">No bookings found.</td></tr>';
+                } else {
+                    let html = '';
+                    recentBookings.forEach(b => {
+                        const d = new Date(b.show_date);
+                        const dateStr = `${d.getDate()} ${d.toLocaleString('default', { month: 'short' })}, ${d.getFullYear()}`;
+                        html += `
+                            <tr>
+                                <td style="font-family: monospace;">${b.booking_reference}</td>
+                                <td>${b.movie_title}</td>
+                                <td>${dateStr}</td>
+                                <td>${b.seats.join(', ')}</td>
+                                <td>$${Number(b.total_amount).toFixed(2)}</td>
+                                <td><span style="color: #22c55e;">Confirmed</span></td>
+                                <td><span class="action-btn btn-del" onclick="alert('Delete feature requires backend route')"><i class="fa-solid fa-trash"></i></span></td>
+                            </tr>
+                        `;
+                    });
+                    tbody.innerHTML = html;
+                }
+
+            } catch (error) {
+                console.error("Error fetching admin stats:", error);
+                document.getElementById('adminBookingsTable').innerHTML = '<tr><td colspan="7" style="text-align: center; color: var(--accent-red);">Error loading database. Check console.</td></tr>';
+            }
+        });
+    </script>
+</body>
+</html>
