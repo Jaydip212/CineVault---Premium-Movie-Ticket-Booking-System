@@ -44,11 +44,42 @@ window.closeMovieModal = function() {
     document.getElementById('addMovieForm').reset();
 }
 
-// Close modal when clicking outside
+// Close modals when clicking outside
 window.onclick = function(event) {
     if (event.target == addMovieModal) {
         window.closeMovieModal();
     }
+    if (event.target == editMovieModal) {
+        window.closeEditMovieModal();
+    }
+}
+
+const editMovieModal = document.getElementById('editMovieModal');
+
+// Need to safely escape quotes for inline HTML onclick attributes
+function escapeHtmlQuotes(str) {
+    if(!str) return "";
+    return str.replace(/'/g, "&#39;").replace(/"/g, "&quot;");
+}
+
+window.openEditMovieModal = function(m_json) {
+    const m = JSON.parse(decodeURIComponent(m_json));
+    
+    document.getElementById('edit_m_id').value = m.id;
+    document.getElementById('edit_m_title').value = m.title || '';
+    document.getElementById('edit_m_genre').value = m.genre || '';
+    document.getElementById('edit_m_lang').value = m.language || '';
+    document.getElementById('edit_m_dur').value = m.duration || '';
+    document.getElementById('edit_m_rate').value = m.rating || '';
+    document.getElementById('edit_m_poster').value = m.poster || '';
+    document.getElementById('edit_m_desc').value = m.description || '';
+    
+    editMovieModal.classList.add('active');
+}
+
+window.closeEditMovieModal = function() {
+    editMovieModal.classList.remove('active');
+    document.getElementById('editMovieForm').reset();
 }
 
 
@@ -144,6 +175,7 @@ async function loadMoviesData() {
                     <td><i class="fa-solid fa-star text-gold"></i> ${m.rating}</td>
                     <td>${m.language}</td>
                     <td>
+                        <button class="action-btn btn-edit" onclick="window.openEditMovieModal('${encodeURIComponent(JSON.stringify(m))}')" title="Edit Movie" style="margin-right: 0.5rem;"><i class="fa-solid fa-pen"></i></button>
                         <button class="action-btn btn-del" onclick="window.deleteMovie('${m.id}')" title="Delete Movie"><i class="fa-solid fa-trash"></i></button>
                     </td>
                 </tr>
@@ -323,5 +355,44 @@ window.submitNewMovie = async function(e) {
     } catch (err) {
         console.error(err);
         alert('Failed to insert movie: ' + err.message);
+    }
+}
+
+window.submitEditMovie = async function(e) {
+    e.preventDefault();
+    if(USE_MOCK_DATA) {
+        alert("Cannot edit in Mock Mode. Please connect Supabase first.");
+        return;
+    }
+
+    const id = document.getElementById('edit_m_id').value;
+    const title = document.getElementById('edit_m_title').value;
+    const genre = document.getElementById('edit_m_genre').value;
+    const lang = document.getElementById('edit_m_lang').value;
+    const dur = document.getElementById('edit_m_dur').value;
+    const rate = document.getElementById('edit_m_rate').value;
+    const poster = document.getElementById('edit_m_poster').value;
+    const desc = document.getElementById('edit_m_desc').value;
+
+    try {
+        const { error } = await supabase.from('movies').update({
+            title: title,
+            genre: genre,
+            language: lang,
+            duration: dur,
+            rating: rate,
+            poster: poster,
+            banner: poster,
+            description: desc
+        }).eq('id', id);
+
+        if (error) throw error;
+        
+        alert("Movie details updated successfully!");
+        window.closeEditMovieModal();
+        loadMoviesData();
+    } catch (err) {
+        console.error(err);
+        alert('Failed to update movie details: ' + err.message);
     }
 }
