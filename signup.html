@@ -70,6 +70,92 @@
         .name-grid {
             display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
         }
+
+        @media (max-width: 768px) {
+            .auth-page {
+                padding: 3rem 1.5rem;
+            }
+
+            .auth-card {
+                padding: 2rem;
+                border-radius: 16px;
+                max-width: 100%;
+            }
+
+            .auth-logo {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .name-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+            }
+
+            .form-control {
+                font-size: 16px;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-page {
+                padding: 2rem 1rem;
+                min-height: auto;
+            }
+
+            .auth-card {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+
+            .auth-logo {
+                font-size: 1.4rem;
+                margin-bottom: 0.8rem;
+            }
+
+            h2 {
+                font-size: 1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .text-secondary {
+                font-size: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .name-grid {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .form-group {
+                margin-bottom: 0.8rem;
+            }
+
+            .form-label {
+                font-size: 0.85rem;
+            }
+
+            .form-control {
+                font-size: 16px;
+                padding: 0.7rem;
+            }
+
+            .btn {
+                padding: 0.7rem;
+                font-size: 0.95rem;
+            }
+
+            .auth-footer {
+                margin-top: 1.5rem;
+                font-size: 0.75rem;
+            }
+        }
     </style>
 </head>
 <body>

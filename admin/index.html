@@ -123,6 +123,210 @@
         .tab-content { display: none; }
         .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from {opacity: 0; transform: translateY(10px);} to {opacity: 1; transform: translateY(0);} }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                padding: 1.5rem 2rem;
+            }
+
+            .dash-cards {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            th, td {
+                padding: 0.8rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .action-btn {
+                padding: 0.25rem 0.5rem;
+                font-size: 0.75rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .admin-layout {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid var(--border-light);
+                padding: 1rem 0;
+                flex-direction: row;
+                overflow-x: auto;
+                scrollbar-width: none;
+            }
+
+            .sidebar::-webkit-scrollbar { display: none; }
+
+            .nav-logo {
+                padding: 0 1.5rem;
+                margin-bottom: 0;
+                font-size: 1.2rem;
+                min-width: fit-content;
+            }
+
+            .side-link {
+                padding: 0.75rem 1rem;
+                white-space: nowrap;
+                border-right: none;
+                border-bottom: 2px solid transparent;
+            }
+
+            .side-link:hover, .side-link.active {
+                border-right: none;
+                border-bottom: 2px solid var(--accent-red);
+            }
+
+            .main-content {
+                padding: 1.2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem !important;
+            }
+
+            .dash-cards {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .d-card {
+                padding: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .d-icon {
+                width: 45px;
+                height: 45px;
+                font-size: 1.2rem;
+                align-self: flex-end;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.6rem;
+            }
+
+            .action-btn {
+                padding: 0.2rem 0.4rem;
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sidebar {
+                flex-direction: row;
+                overflow-x: auto;
+                padding: 0.75rem 0;
+            }
+
+            .nav-logo {
+                padding: 0 1rem;
+                font-size: 1rem;
+                margin-bottom: 0;
+            }
+
+            .sidebar div:last-child {
+                margin-top: 0;
+            }
+
+            .side-link {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.85rem;
+                gap: 0.5rem;
+            }
+
+            .side-link i {
+                font-size: 0.9rem;
+            }
+
+            .main-content {
+                padding: 1rem;
+            }
+
+            h2 {
+                font-size: 1.3rem !important;
+                margin-bottom: 1rem;
+            }
+
+            .btn {
+                padding: 0.6rem 0.8rem;
+                font-size: 0.85rem;
+            }
+
+            .dash-cards {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .d-card {
+                padding: 1rem;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .d-card h4 {
+                font-size: 0.8rem;
+            }
+
+            .d-card .num {
+                font-size: 1.4rem;
+            }
+
+            .d-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                flex-shrink: 0;
+            }
+
+            h3 {
+                font-size: 1rem !important;
+                margin-bottom: 1rem;
+            }
+
+            .table-wrap {
+                overflow-x: auto;
+                border-radius: 8px;
+            }
+
+            table {
+                font-size: 0.75rem;
+                white-space: nowrap;
+            }
+
+            th, td {
+                padding: 0.5rem 0.6rem;
+            }
+
+            .action-btn {
+                padding: 0.15rem 0.3rem;
+                font-size: 0.65rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                padding: 1.5rem;
+            }
+
+            .close-modal {
+                right: 1rem;
+                top: 1rem;
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>

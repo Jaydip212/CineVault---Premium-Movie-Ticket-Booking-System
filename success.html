@@ -123,14 +123,161 @@
             background: repeating-linear-gradient(90deg, #111 0, #111 2px, transparent 2px, transparent 4px, #111 4px, #111 8px, transparent 8px, transparent 10px);
         }
 
-        @media (max-width: 768px) {
-            .ticket { flex-direction: column; }
-            .ticket-left { border-right: none; border-bottom: 2px dashed #ccc; }
-            .ticket-left::before, .ticket-left::after {
-                left: -20px; right: auto;
+        @media (max-width: 1024px) {
+            .success-icon-wrap {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
             }
-            .ticket-left::before { bottom: -21px; top: auto; }
-            .ticket-left::after { bottom: -21px; right: -20px; left: auto; top: auto; }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .ticket {
+                max-width: 95%;
+                margin: 2rem auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .success-container {
+                padding: 2rem 1rem;
+            }
+
+            .success-icon-wrap {
+                width: 70px;
+                height: 70px;
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            h1 {
+                font-size: 1.7rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .text-secondary {
+                font-size: 0.95rem;
+            }
+
+            .ticket {
+                flex-direction: column;
+                margin: 2rem 0;
+                border-radius: 16px;
+            }
+
+            .ticket-left {
+                border-right: none;
+                border-bottom: 2px dashed #ccc;
+                padding: 2rem;
+            }
+
+            .ticket-left::before {
+                left: -21px;
+                right: auto;
+                bottom: -21px;
+                top: auto;
+            }
+
+            .ticket-left::after {
+                left: auto;
+                right: -21px;
+                bottom: -21px;
+                top: auto;
+            }
+
+            .ticket-right {
+                padding: 2rem;
+            }
+
+            .ticket-title {
+                font-size: 1.5rem;
+            }
+
+            .ticket-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+
+            .qr-placeholder {
+                width: 120px;
+                height: 120px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .success-container {
+                padding: 1.5rem 0.75rem;
+                min-height: auto;
+            }
+
+            .success-icon-wrap {
+                width: 60px;
+                height: 60px;
+                font-size: 1.8rem;
+                margin-bottom: 1rem;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+                margin-bottom: 0.2rem;
+            }
+
+            .text-secondary {
+                font-size: 0.8rem;
+            }
+
+            .ticket {
+                max-width: 100%;
+                margin: 1.5rem 0;
+                border-radius: 12px;
+            }
+
+            .ticket-left,
+            .ticket-right {
+                padding: 1.5rem;
+            }
+
+            .ticket-left::before,
+            .ticket-left::after {
+                width: 30px;
+                height: 30px;
+            }
+
+            .ticket-title {
+                font-size: 1.2rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .ticket-genre {
+                font-size: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .ticket-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .t-label {
+                font-size: 0.7rem;
+            }
+
+            .t-value {
+                font-size: 1rem;
+            }
+
+            .qr-placeholder {
+                width: 100px;
+                height: 100px;
+                margin-bottom: 0.8rem;
+            }
+
+            .barcode {
+                height: 30px;
+            }
         }
 
         /* Print Override */

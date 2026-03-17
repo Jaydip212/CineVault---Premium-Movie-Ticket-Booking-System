@@ -65,6 +65,81 @@
 
         .auth-footer a { color: var(--accent-blue); font-weight: 500; }
         .auth-footer a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            .auth-page {
+                padding: 4rem 1.5rem;
+            }
+
+            .auth-card {
+                padding: 2rem;
+                border-radius: 16px;
+            }
+
+            .auth-logo {
+                font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .form-label {
+                font-size: 0.9rem;
+            }
+
+            .form-control {
+                font-size: 16px;
+                padding: 0.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-page {
+                padding: 2rem 1rem;
+                min-height: calc(100vh - 40px);
+            }
+
+            .auth-card {
+                padding: 1.5rem;
+                max-width: 100%;
+                border-radius: 12px;
+            }
+
+            .auth-logo {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .text-secondary {
+                font-size: 0.8rem;
+            }
+
+            .form-group {
+                margin-bottom: 1rem;
+            }
+
+            .form-control {
+                font-size: 16px;
+                padding: 0.7rem;
+            }
+
+            .btn {
+                padding: 0.7rem;
+                font-size: 0.95rem;
+            }
+
+            .auth-footer {
+                margin-top: 1.5rem;
+                font-size: 0.8rem;
+            }
+        }
     </style>
 </head>
 <body>

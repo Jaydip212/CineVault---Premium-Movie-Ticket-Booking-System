@@ -1,9 +1,24 @@
 /*=============================================
 =            Responsive Styles                =
 =============================================*/
+
+/* Mobile-First Approach */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
 @media (max-width: 1024px) {
   .movie-grid {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  }
+
+  .container {
+    padding: 0 1.5rem;
   }
 }
 
@@ -21,6 +36,7 @@
     padding: 2rem;
     transition: right var(--transition-normal);
     box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    z-index: 1000;
   }
 
   .nav-links.active {
@@ -44,17 +60,138 @@
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
   }
+
+  .container {
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .btn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 1rem;
+    padding: 0 0.75rem;
   }
   
   .movie-grid {
     grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 0.75rem;
   }
 
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+  }
+
+  h3 {
+    font-size: 1rem;
+  }
+
+  .section {
+    padding: 2rem 0;
+  }
+
+  .btn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 8px;
+  }
+
+  /* Prevent layout shift */
+  input,
+  textarea,
+  select,
+  button {
+    font-size: 16px !important;
+  }
+
+  /* Better touch targets */
+  .btn,
+  button,
+  a.btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Form improvements */
+  .form-control {
+    font-size: 16px;
+    padding: 0.75rem;
+  }
+
+  .form-label {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .form-group {
+    margin-bottom: 1rem;
+  }
+
+  /* Navbar improvements */
+  .navbar {
+    padding: 0.75rem 0;
+  }
+
+  .nav-logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-container {
+    padding: 0 0.75rem;
+  }
+
+  /* Text optimization */
+  body {
+    font-size: 14px;
+  }
+
+  p {
+    line-height: 1.6;
+  }
+
+  /* Spacing */
+  .text-secondary {
+    font-size: 0.85rem;
+  }
+
+  .text-muted {
+    font-size: 0.8rem;
+  }
+
+  /* Grid adjustments */
+  [class*="grid"] {
+    gap: 0.75rem !important;
+  }
+
+  /* Shadow reduction on mobile */
+  .shadow-lg,
+  .shadow-neon-red,
+  .shadow-neon-blue {
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3) !important;
+  }
 }

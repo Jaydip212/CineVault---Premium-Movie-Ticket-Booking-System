@@ -77,6 +77,76 @@
             80% { clip: rect(11px, 9999px, 80px, 0); }
             100% { clip: rect(98px, 9999px, 20px, 0); }
         }
+
+        @media (max-width: 768px) {
+            .error-page {
+                height: auto;
+                min-height: 100vh;
+                padding: 2rem 0;
+            }
+
+            .glitch-text {
+                font-size: clamp(4rem, 10vw, 8rem);
+            }
+
+            h2 {
+                font-size: 1.5rem !important;
+                margin: 0.75rem 0 !important;
+            }
+
+            .text-secondary {
+                font-size: 0.95rem;
+                margin: 0 1rem 1.5rem !important;
+            }
+
+            .btn {
+                padding: 0.75rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .error-page {
+                padding: 1.5rem 0;
+            }
+
+            .glitch-text {
+                font-size: clamp(2.5rem, 8vw, 5rem);
+            }
+
+            .glitch-text::before,
+            .glitch-text::after {
+                animation: none;
+            }
+
+            .glitch-text::before {
+                text-shadow: -1px 0 var(--accent-red);
+                left: 1px;
+            }
+
+            .glitch-text::after {
+                text-shadow: -1px 0 var(--accent-blue);
+                left: -1px;
+            }
+
+            h2 {
+                font-size: 1.2rem !important;
+                margin: 0.5rem 0 !important;
+            }
+
+            .text-secondary {
+                font-size: 0.85rem;
+                margin: 0 0.75rem 1.2rem !important;
+            }
+
+            .btn {
+                padding: 0.65rem 1.2rem;
+                font-size: 0.95rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
     </style>
 </head>
 <body class="page-enter">
