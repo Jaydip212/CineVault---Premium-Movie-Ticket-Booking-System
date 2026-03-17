@@ -1,7 +1,7 @@
 import { supabase, USE_MOCK_DATA } from './supabase.js';
 
 let bookingData = {};
-const CONVENIENCE_FEE = 4.00;
+const CONVENIENCE_FEE = 332; // ₹332 (was $4.00)
 let discount = 0;
 
 document.addEventListener('DOMContentLoaded', async () => {

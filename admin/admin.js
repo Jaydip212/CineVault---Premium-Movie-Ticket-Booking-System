@@ -88,13 +88,13 @@ window.closeEditMovieModal = function() {
 =============================================*/
 async function loadDashboardData() {
     if (USE_MOCK_DATA) {
-        document.getElementById('statRevenue').innerText = '$12,450';
+        document.getElementById('statRevenue').innerText = '₹10,33,350';
         document.getElementById('statBookings').innerText = '842';
         document.getElementById('statMovies').innerText = '14';
         document.getElementById('statTheatres').innerText = '5';
         document.getElementById('adminBookingsTableContent').innerHTML = `
             <tr>
-                <td>#CV1049</td><td>The Cosmic Void</td><td>Jan 01, 2026</td><td>$50.00</td>
+                <td>#CV1049</td><td>The Cosmic Void</td><td>Jan 01, 2026</td><td>₹4,150.00</td>
                 <td><span style="color: #22c55e;">Confirmed</span></td>
             </tr>
         `;
@@ -107,7 +107,7 @@ async function loadDashboardData() {
 
         let revenue = 0;
         bookings.forEach(b => revenue += Number(b.total_amount || 0));
-        document.getElementById('statRevenue').innerText = '$' + revenue.toFixed(2);
+        document.getElementById('statRevenue').innerText = '₹' + (revenue * 83).toFixed(2);
         document.getElementById('statBookings').innerText = bookings.length;
 
         const { count: moviesCount } = await supabase.from('movies').select('*', { count: 'exact', head: true });
@@ -131,7 +131,7 @@ async function loadDashboardData() {
                         <td style="font-family: monospace;">${b.booking_reference}</td>
                         <td>${b.movie_title}</td>
                         <td>${d.getDate()} ${d.toLocaleString('default', { month: 'short' })}, ${d.getFullYear()}</td>
-                        <td>$${Number(b.total_amount).toFixed(2)}</td>
+                        <td>₹${(Number(b.total_amount) * 83).toFixed(2)}</td>
                         <td><span style="color: #22c55e;">Confirmed</span></td>
                     </tr>
                 `;

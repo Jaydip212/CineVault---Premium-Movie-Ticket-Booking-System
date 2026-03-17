@@ -1,9 +1,9 @@
 import { getMovieById } from './movies.js';
 
 const PRICES = {
-    regular: 12,
-    premium: 18,
-    vip: 25
+    regular: 996,    // ₹996 (was $12)
+    premium: 1494,   // ₹1,494 (was $18)
+    vip: 2075        // ₹2,075 (was $25)
 };
 
 let bookingData = {};
@@ -50,17 +50,17 @@ function generateSeatMap() {
     let html = '';
 
     // VIP (Rows A-B)
-    html += `<div class="cat-title">VIP Recliners - <span>$${PRICES.vip}</span></div><div class="cat-vip">`;
+    html += `<div class="cat-title">VIP Recliners - <span>₹${PRICES.vip}</span></div><div class="cat-vip">`;
     html += generateRows(['A', 'B'], 6, 2); // rows, seatsPerSide, aisleWidth(1) -> 6 left, aisle, 6 right
     html += `</div>`;
 
     // Premium (Rows C-E)
-    html += `<div class="cat-title">Premium - <span>$${PRICES.premium}</span></div><div class="cat-premium">`;
+    html += `<div class="cat-title">Premium - <span>₹${PRICES.premium}</span></div><div class="cat-premium">`;
     html += generateRows(['C', 'D', 'E'], 8, 2);
     html += `</div>`;
 
     // Regular (Rows F-J)
-    html += `<div class="cat-title">Regular - <span>$${PRICES.regular}</span></div><div class="cat-regular">`;
+    html += `<div class="cat-title">Regular - <span>₹${PRICES.regular}</span></div><div class="cat-regular">`;
     html += generateRows(['F', 'G', 'H', 'I', 'J'], 10, 2);
     html += `</div>`;
 

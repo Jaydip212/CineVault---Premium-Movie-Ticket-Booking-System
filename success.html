@@ -182,7 +182,7 @@
                     </div>
                     <div>
                         <div class="t-label">Total Amount</div>
-                        <div class="t-value" id="tAmount">$0.00</div>
+                        <div class="t-value" id="tAmount">₹0.00</div>
                     </div>
                 </div>
 
@@ -219,7 +219,7 @@
                 document.getElementById('tDate').innerText = `${d.getDate()} ${d.toLocaleString('default', { month: 'short' })}, ${d.getFullYear()}`;
                 document.getElementById('tTime').innerText = data.time;
                 document.getElementById('tSeats').innerText = data.seats.join(', ');
-                document.getElementById('tAmount').innerText = '$' + data.finalTotal.toFixed(2);
+                document.getElementById('tAmount').innerText = '₹' + data.finalTotal.toFixed(2);
                 document.getElementById('tRef').innerText = data.bookingId || 'CV' + Math.floor(Math.random()*1000000);
             }
 
